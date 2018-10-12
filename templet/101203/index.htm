@@ -1,0 +1,95 @@
+<?php 
+    @include("templet/101203/top.htm");
+?>
+
+<DIV id=webmain>
+    <TABLE class=maintable cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+            <TD valign="top">
+                <DIV class="f-l w-220">
+                    <H2><a class=s-1>用户登录</a>
+                        <DIV class=bdr-right></DIV>
+                    </H2>
+                    <DIV class=bdr>
+                        <?php
+                            @include("action/web/userlogin.php");
+                        ?>
+                        <DIV class=clear></DIV>
+                    </DIV>
+                    <DIV class="bdr-bottom-220">
+                        <DIV class=bdr-right2></DIV>
+                    </DIV>
+                    <DIV class="bk-10"></DIV>
+                </DIV>
+
+                <DIV class="f-l w-220">
+                    <H2><a class=s-1>联系我们</a>
+                        <DIV class=bdr-right></DIV>
+                    </H2>
+                    <DIV class=bdr>
+                        <?php
+                            @include("action/web/index_lxwm.php");
+                        ?>
+                        <DIV class=clear></DIV>
+                    </DIV>
+                    <DIV class="bdr-bottom-220">
+                        <DIV class=bdr-right2></DIV>
+                    </DIV>
+                    <DIV class="bk-10"></DIV>
+                </DIV>
+                <DIV class="f-l w-220">
+                    <H2><a class=s-1>最新注册</a>
+                        <DIV class=bdr-right></DIV>
+                    </H2>
+                    <DIV class=bdr>
+                        <?php
+                            @include("action/web/userlast.php");
+                        ?>
+                        <DIV class=clear></DIV>
+                    </DIV>
+                    <DIV class="bdr-bottom-220">
+                        <DIV class=bdr-right2></DIV>
+                    </DIV>
+                    <DIV class="bk-10"></DIV>
+                </DIV>
+            </TD>
+            <TD valign="top" style="padding-left:10px;padding-right:10px;">
+                <?php
+                    if($action==""){
+                        @include("action/web/index.php");
+                    }
+
+                    if($action=="wztj"){
+                        @include("action/web/wztj.php");
+                    }
+
+                    if($action=="wdtj"){
+                        @include("action/web/wdtj.php");
+                    }
+
+                    if($action=="tjgg"){
+                        @include("action/web/tjgg.php");
+                    }
+
+                    if($action=="cjwt"){
+                        @include("action/web/cjwt.php");
+                    }
+
+                    if($action=="fwtk"){
+                        @include("action/web/fwtk.php");
+                    }
+
+                    if($action=="lxwm"){
+                        @include("action/web/lxwm.php");
+                    }
+                ?>
+            </TD>
+        </TR>
+        </TBODY>
+    </TABLE>
+</DIV>
+
+<?php 
+@include("templet/101203/bottom.htm");
+?>
