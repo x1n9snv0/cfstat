@@ -118,7 +118,7 @@ table{font-size:12px;}
 }
 .clear{
 	clear:both;
-	height:0px;
+	height:0;
 }
 .wrap{
 	width:950px;;
@@ -165,32 +165,34 @@ table{font-size:12px;}
 </HEAD>
 <body>
 <table class="tb_3" width="600">
-          <tr class="tr_1"> 
-            <td >管理员密码修复工具</td>
-          </tr>
+    <tr class="tr_1">
+        <td>管理员密码修复工具</td>
+    </tr>
 
-            <tr>
-              <td style="margin:5px;font-size:12px;text-align:center">
-<?php 
-if(file_exists('tools.lock')){
-?>
-tools.lock文件存在，无法进行密码修改<br><br>
-请删除此文件后刷新本页面即可进行密码修复工作<br><br>
-修复后系统将使用系统默认的密码，并重新生成tools.lock文件，每次修复前必须删除此文件<br><br>
-<a href="#" class="t_button" onClick="location.href='?ranstr=' + Math.random()">刷新本页面</a>
-<?php 
-}else{
-?>
-修复锁定文件tools.lock不存在，点击下面修复按钮即可进行修复工作<br><br>
-修复后系统将使用系统默认的密码，并重新生成tools.lock文件<br><br>
-<a href="?action=adminpwdrecoversave" class="t_button"  onClick="return confirm('修复后系统将使用默认管理员和密码，确定要修复吗?')">点击修复密码,并生成tools.lock密码修复锁定文件</a>
-<br><br>
-<a href="?action=adminpwdlockfilemodifysave" class="t_button"  onClick="return confirm('确定要不修复模板直接生成tools.lock模板修复锁定文件吗?')">不修复密码,直接生成tools.lock密码修复锁定文件</a>
+    <tr>
+        <td style="margin:5px;font-size:12px;text-align:center">
+            <?php
+            if (file_exists('tools.lock')) {
+                ?>
+                tools.lock文件存在，无法进行密码修改<br><br>
+                请删除此文件后刷新本页面即可进行密码修复工作<br><br>
+                修复后系统将使用系统默认的密码，并重新生成tools.lock文件，每次修复前必须删除此文件<br><br>
+                <a href="#" class="t_button" onClick="location.href='?ranstr=' + Math.random()">刷新本页面</a>
+                <?php
+            } else {
+                ?>
+                修复锁定文件tools.lock不存在，点击下面修复按钮即可进行修复工作<br><br>
+                修复后系统将使用系统默认的密码，并重新生成tools.lock文件<br><br>
+                <a href="?action=adminpwdrecoversave" class="t_button"
+                   onClick="return confirm('修复后系统将使用默认管理员和密码，确定要修复吗?')">点击修复密码,并生成tools.lock密码修复锁定文件</a>
+                <br><br>
+                <a href="?action=adminpwdlockfilemodifysave" class="t_button"
+                   onClick="return confirm('确定要不修复模板直接生成tools.lock模板修复锁定文件吗?')">不修复密码,直接生成tools.lock密码修复锁定文件</a>
 
-<?php 
-}
-?>
- </td>
-            </tr>
+                <?php
+            }
+            ?>
+        </td>
+    </tr>
 
 </table>  

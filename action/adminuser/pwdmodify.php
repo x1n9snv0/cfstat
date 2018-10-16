@@ -52,7 +52,7 @@ $rs=mysql_fetch_assoc($result);
 	  <td>  
           <input type="submit" name="Submit3" value="修改">
           　　 
-          <input type="submit" name="Submit523" value="取消" onClick="javascript:history.go(-1)">
+          <input type="submit" name="Submit523" value="取消" onClick="history.go(-1)">
       </td>
     </tr>
 

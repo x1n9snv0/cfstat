@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 乘风多用户PHP统计系统
 作者QQ：178575
@@ -10,7 +10,7 @@
 有完整版本的演示
 */
 ?>
-<?php 
+<?php
 session_start();
 
 @include("conn.php");
@@ -19,14 +19,13 @@ session_start();
 @include("include/getcookie.php");
 
 
-if($_SESSION["cfstatadmin"]==""){
- setcookie("cfstatadmincookie","",time()-600);
- alerturl("会话已经过期，请重新登录","admin.php");
- exit;
+if ($_SESSION["cfstatadmin"] == "") {
+    setcookie("cfstatadmincookie", "", time() - 600);
+    alerturl("会话已经过期，请重新登录", "admin.php");
+    exit;
 }
 
-$action = isset($_GET["action"]) ? chkstr($_GET["action"],1) : "userlist";
-
+$action = isset($_GET["action"]) ? chkstr($_GET["action"], 1) : "userlist";
 
 
 @include("include/adminuser_manage_do.php");
@@ -36,21 +35,21 @@ $action = isset($_GET["action"]) ? chkstr($_GET["action"],1) : "userlist";
 
 
 <table class="manage">
-<tr> 
-<td class="manage_left">
-<?php 
-@include("include/adminuser_manage_menu.php");
-?>
-</td>
-<td class="manage_right">
-<?php 
-@include("include/adminuser_manage_select.php");
-?>
-</td>
-</tr>
+    <tr>
+        <td class="manage_left">
+            <?php
+            @include("include/adminuser_manage_menu.php");
+            ?>
+        </td>
+        <td class="manage_right">
+            <?php
+            @include("include/adminuser_manage_select.php");
+            ?>
+        </td>
+    </tr>
 </table>
 
 
-<?php 
+<?php
 @include("templet/101203/bottom.htm");
 ?>

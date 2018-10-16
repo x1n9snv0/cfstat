@@ -17,5 +17,5 @@
 
 $action = isset($_GET["action"]) ? chkstr($_GET["action"],1) : "";
 
-@include("cf_do.php");
+@include("include/cf_do.php");
 ?>

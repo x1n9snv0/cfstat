@@ -14,12 +14,12 @@
 session_start();
 
 @include("conn.php");
-@include("cf_myfunction.php");
+@include("include/myfunction.php");
 @include("config.php");
 
 $action = isset($_REQUEST["action"]) ? $_REQUEST["action"] : "view";
 
-@include("cf_do.php");
+@include("include/cf_do.php");
 
 @include("templet/101203/top.htm");
 

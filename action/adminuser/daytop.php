@@ -33,8 +33,8 @@ pxfilter($px,"username,mycounter,ipcounter");
 echo "&nbsp;&nbsp;<select id='adddate' onChange=\"window.location=document.getElementById('adddate').options[document.getElementById('adddate').selectedIndex].value\">";
 echo "<option value='?action=".$action."'>请选择查询日期</option>";
 $sql="select adddate from cfstat_count_day group by adddate desc";
-$result=mysql_query($sql);
-while($rs=mysql_fetch_assoc($result))
+$result=$conn->query($sql);
+while($rs=mysqli_fetch_assoc($result))
 { 
    echo "<option value=?action=".$action."&adddate=".$rs["adddate"];     
    if($adddate==$rs["adddate"]) echo " selected";
@@ -55,8 +55,8 @@ echo "</select>";
   </tr>
   <?php 
 $sql="select count(*) from (select username from cfstat_count_day where TO_DAYS('$adddate') -TO_DAYS(adddate)=0 group by username) a";
-$result=mysql_query($sql);
-$rs=mysql_fetch_row($result);
+$result=$conn->query($sql);
+$rs=mysqli_fetch_row($result);
 $page=$_GET["page"];
 if ($page<=0) $page=1;
 $pagesize=50;
@@ -67,9 +67,9 @@ $offset=$pagesize*($page-1);
 $sql="select * from cfstat_count_day where TO_DAYS('$adddate') -TO_DAYS(adddate)=0";
 $sql=$sql." order by $px desc limit $offset ,$pagesize";
 
-$result2=mysql_query($sql);
+$result2=$conn->query($sql);
 
-while ($rs=mysql_fetch_assoc($result2))
+while ($rs=mysqli_fetch_assoc($result2))
 {
 ?>
   <tr class="tr_2"> 
