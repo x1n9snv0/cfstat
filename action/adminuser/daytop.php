@@ -1,16 +1,4 @@
-<?php 
-/*
-乘风多用户PHP统计系统
-作者QQ：178575
-作者E-Mail：yliangcf@163.com
-作者网站：http://www.qqcf.com
-详细介绍：http://www.qqcf.com/cfstat.htm
-上面有程序在线演示，安装演示，使用疑难解答，最新版本下载等内容
-因为这些内容可能时常更新，就没有放在程序里，请自己上网站上查看
-有完整版本的演示
-*/
-?>
-<?php 
+<?php
 $adddate=chkstr($_GET["adddate"],3);
 $px=chkstr($_GET["px"],1);
 
@@ -88,7 +76,7 @@ while ($rs=mysqli_fetch_assoc($result2))
                       <?php if($page<$totalpage){?>
                       <a href='?action=<?php echo $action;?>&adddate=<?php echo $adddate;?>&px=<?php echo $px;?>&page=<?php echo $page+1;?>'>下一页</a> 
                       <?php }?>
-                      <a href="?action=<?php echo $action;?>&adddate=<?php echo $adddate;?>&px=<?php echo $px;?>&page=<?php echo $totalpage;?>">最后一页</a>&nbsp;共<font color="#FF0000"><?php echo $totalrs?></font>条记录&nbsp;<font color="#ff0000"><?php echo $page;?></font>/<?php echo $totalpage;?>页
+                      <a href="?action=<?php echo $action;?>&adddate=<?php echo $adddate;?>&px=<?php echo $px;?>&page=<?php echo $totalpage;?>">最后一页</a>&nbsp;共<?php echo $totalrs?>条记录&nbsp;<?php echo $page;?>/<?php echo $totalpage;?>页
 <?php 
 echo "&nbsp;&nbsp;转到第<select id='page' onChange=\"window.location=document.getElementById('page').options[document.getElementById('page').selectedIndex].value\">";
 for ($i=1;$i<=$totalpage;$i++){

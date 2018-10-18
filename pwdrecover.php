@@ -21,18 +21,17 @@ session_start();
 $action = isset($_GET["action"]) ? chkstr($_GET["action"],1) : "pwdrecover";
 
 
-@include("include/cf_do.php");
+@include("include/cf_do.php");?>
 
-@include("templet/101203/top.htm");
+<!DOCTYPE>
+<html>
+    <?php @include("templates/default/header.php"); ?>
+    <body>
+        <?php @include("templates/default/nav.php"); ?>
 
+        <?php if($action=="pwdrecover") @include("action/web/pwdrecover.php");?>
+        <?php if($action=="pwdmodify") @include("action/web/pwdmodify.php");?>
 
-if($action=="pwdrecover")
-@include("action/web/pwdrecover.php");
-
-if($action=="pwdmodify")
-@include("action/web/pwdmodify.php");
-
-
-@include("templet/101203/bottom.htm");
-?>
-
+        <?php @include("templates/default/footer.php"); ?>
+    </body>
+</html>

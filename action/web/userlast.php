@@ -1,4 +1,4 @@
-<table style="width:90%;margin:0px auto;">
+<table style="width:90%;margin:0 auto;">
     <td style="width:70px">用户名</td>
     <td>注册日期</td>
     <?php

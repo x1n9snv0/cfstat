@@ -1,15 +1,3 @@
-<?php
-/*
-乘风多用户PHP统计系统
-作者QQ：178575
-作者E-Mail：yliangcf@163.com
-作者网站：http://www.qqcf.com
-详细介绍：http://www.qqcf.com/cfstat.htm
-上面有程序在线演示，安装演示，使用疑难解答，最新版本下载等内容
-因为这些内容可能时常更新，就没有放在程序里，请自己上网站上查看
-有完整版本的演示
-*/
-?>
 <table class="tb_1">
     <tr class="tr_1">
         <td>序号</td>
@@ -29,22 +17,15 @@
             <td><?php echo $rs["siteflag"]; ?></td>
             <td><?php echo $rs["keywordflag"]; ?></td>
             <td>
-
-
                 <a href="?action=searchmodify&id=<?php echo $rs["id"]; ?>">修改</a>
                 <a href="?action=searchdel&siteflag=<?php echo $rs["siteflag"]; ?>"
-                   onClick="{if(confirm('确定要删除么?')){return true;}return false;}">删除</a>
-
+                   onClick="return(confirm('确定要删除么?'))">删除</a>
             </td>
         </tr>
         <?php
         $allsearch = $allsearch . $rs["siteflag"] . "," . $rs["keywordflag"] . "|";
-
     }
-
-
     $allsearch = substr($allsearch, 0, strlen($allsearch) - 1);
-
     $sql = "update cfstat_admin set allsearch='$allsearch'";
     $conn->query($sql);
     ?>
@@ -77,7 +58,6 @@
             <td><input type="submit" name="Submit" value="增加"></td>
         </tr>
         <tr>
-
             <td colspan="4">比如：<br>
                 百度网页搜索&quot;abcd&quot;IE地址栏为:http://www.baidu.com/s?wd=abcd&amp;cl=3<br>
                 百度贴吧搜索&quot;abcd&quot;IE地址栏为:http://post.baidu.com/f?kw=abcd<br>

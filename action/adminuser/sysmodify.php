@@ -1,16 +1,3 @@
-<?php
-/*
-乘风多用户PHP统计系统
-作者QQ：178575
-作者E-Mail：yliangcf@163.com
-作者网站：http://www.qqcf.com
-详细介绍：http://www.qqcf.com/cfstat.htm
-上面有程序在线演示，安装演示，使用疑难解答，最新版本下载等内容
-因为这些内容可能时常更新，就没有放在程序里，请自己上网站上查看
-有完整版本的演示
-*/
-?>
-
 <form name="form1" method="post" action="?action=sysmodifysave">
 
     <table class="tb_1">
@@ -37,11 +24,9 @@
         </tr>
         <tr>
             <td>注册后是否需要管理员审核：</td>
-            <td><input type="radio" name="regadmincheck"
-                       value="-1" <?php if ($rs["regadmincheck"] == -1) echo "checked"; ?>>
+            <td><input type="radio" name="regadmincheck" value="-1" <?php if ($rs["regadmincheck"] == -1) echo "checked"; ?>>
                 是 　　
-                <input name="regadmincheck" type="radio"
-                       value="0" <?php if ($rs["regadmincheck"] == 0) echo "checked"; ?>>
+                <input name="regadmincheck" type="radio" value="0" <?php if ($rs["regadmincheck"] == 0) echo "checked"; ?>>
                 否 (默认：否)
             </td>
         </tr>
@@ -94,8 +79,6 @@
                 暗粉样式
             </td>
         </tr>
-
-
         <tr>
             <td>自定义皮肤颜色：</td>
             <td><input name="skincolor" type="text" id="skincolor" value="<?php echo $rs["skincolor"]; ?>" size="70">
@@ -107,7 +90,6 @@
             <td></td>
             <td>
                 <input type="submit" name="Submit3" value="修改">
-                　　
                 <input type="reset" name="Submit523" value="取消"></td>
         </tr>
     </table>
@@ -118,11 +100,9 @@
         <tr class="tr_1">
             <td colspan="2">邮件发送设置测试</td>
         </tr>
-
         <tr class="td_1">
             <td colspan="2">输入收件人Email测试smtp服务器是否正确设置：<input name="email" type="text" id="email" value="" size="20">
                 <input type="submit" name="Submit4" value="提交"/></td>
         </tr>
-
     </table>
 </form>

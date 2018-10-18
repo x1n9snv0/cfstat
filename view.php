@@ -19,11 +19,16 @@ session_start();
 
 $action = isset($_REQUEST["action"]) ? $_REQUEST["action"] : "view";
 
-@include("include/cf_do.php");
+@include("include/cf_do.php"); ?>
+<!DOCTYPE>
+<html>
+    <?php @include("templates/default/header.php"); ?>
+    <body>
+    <?php @include("templates/default/nav.php"); ?>
 
-@include("templet/101203/top.htm");
+    <?php if($action=="view") @include("action/web/view.php");?>
 
-if($action=="view") @include("action/web/view.php");
+    <?php @include("templates/default/footer.php"); ?>
+    </body>
+</html>
 
-@include("templet/101203/bottom.htm");
-?>

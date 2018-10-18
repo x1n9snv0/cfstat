@@ -1,24 +1,9 @@
 <?php
-/*
-乘风多用户PHP统计系统
-作者QQ：178575
-作者E-Mail：yliangcf@163.com
-作者网站：http://www.qqcf.com
-详细介绍：http://www.qqcf.com/cfstat.htm
-上面有程序在线演示，安装演示，使用疑难解答，最新版本下载等内容
-因为这些内容可能时常更新，就没有放在程序里，请自己上网站上查看
-有完整版本的演示
-*/
-?>
-<?php
 $username = chkstr($_REQUEST["username"], 1);
 $px = chkstr($_GET["px"], 1);
 if ($px == "") $px = "id";
-
 pxfilter($px, "id,username,pagename,realiptotal,userstate,adddate,lasttime");
 ?>
-
-
 <table class="tb_1">
     <tr class="tr_1">
         <td><a href="?action=<?php echo $action; ?>&username=<?php echo $username; ?>&px=id">ID</a></td>
@@ -63,7 +48,7 @@ pxfilter($px, "id,username,pagename,realiptotal,userstate,adddate,lasttime");
                 if ($rs["userstate"] == -1) {
                     echo "有效";
                 } else {
-                    echo "<font color='ff0000'>暂停</font>";
+                    echo "暂停";
                 };
                 ?></td>
             <td><?php echo $rs["adddate"]; ?></td>
@@ -73,7 +58,7 @@ pxfilter($px, "id,username,pagename,realiptotal,userstate,adddate,lasttime");
                 <a href="?action=usergo&username=<?php echo $rs["username"]; ?>" target="_blank">查看</a>
                 <?php
                 if ($rs["username"] != "mytest") {
-                    echo "<a href='?action=userdel&username=" . $rs["username"] . "' onClick=\"{if(confirm('确定要删除么?')){return true;}return false;}\">删除</a>";
+                    echo "<a href='?action=userdel&username=" . $rs["username"] . "' onClick=\"return(confirm('确定要删除么?'));\">删除</a>";
                 } else {
                     echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
                 };
@@ -94,16 +79,14 @@ pxfilter($px, "id,username,pagename,realiptotal,userstate,adddate,lasttime");
             <?php if ($page < $totalpage) { ?>
                 <a href='?action=<?php echo $action; ?>&username=<?php echo $username; ?>&px=<?php echo $px; ?>&page=<?php echo $page + 1; ?>'>下一页</a>
             <?php } ?>
-            <a href="?action=<?php echo $action; ?>&username=<?php echo $username; ?>&px=<?php echo $px; ?>&page=<?php echo $totalpage; ?>">最后一页</a>&nbsp;共<font
-                    color="#FF0000"><?php echo $totalrs ?></font>条记录&nbsp;<font
-                    color="#ff0000"><?php echo $page; ?></font>/<?php echo $totalpage; ?>页
+            <a href="?action=<?php echo $action; ?>&username=<?php echo $username; ?>&px=<?php echo $px; ?>&page=<?php echo $totalpage; ?>">最后一页</a>&nbsp;共<?php echo $totalrs ?>条记录<?php echo $page; ?>/<?php echo $totalpage; ?>页
+            &nbsp;&nbsp;转到第<select id='page' onChange="window.location=document.getElementById('page').options[document.getElementById('page').selectedIndex].value">
             <?php
-            echo "&nbsp;&nbsp;转到第<select id='page' onChange=\"window.location=document.getElementById('page').options[document.getElementById('page').selectedIndex].value\">";
-            for ($i = 1; $i <= $totalpage; $i++) {
-                echo "<option value=?action=" . $action . "&username=" . $username . "&px=" . $px . "&page=" . $i;
-                if ($page == $i) echo " selected";
-                echo ">" . $i . "</option>";
-            }
+                for ($i = 1; $i <= $totalpage; $i++) {
+                    echo "<option value=?action=" . $action . "&username=" . $username . "&px=" . $px . "&page=" . $i;
+                    if ($page == $i) echo " selected";
+                    echo ">" . $i . "</option>";
+                }
             echo "</select>页";
             ?>
         </td>
