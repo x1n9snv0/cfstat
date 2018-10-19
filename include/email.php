@@ -73,12 +73,12 @@ class MySendMail {
     */
     protected $_attachment = array();
     /**
-    * @var reource socket资源
+    * @var resource socket资源
     * @access protected
     */
     protected $_socket;
     /**
-    * @var reource 是否是安全连接
+    * @var resource 是否是安全连接
     * @access protected
     */
     protected $_isSecurity;
@@ -370,6 +370,7 @@ class MySendMail {
             }
         }catch(Exception $e) {
             $this->_errorMessage = "Error:" . $e->getMessage();
+            return false;
         }
     }
     /**
@@ -410,6 +411,7 @@ class MySendMail {
             }
         }catch(Exception $e) {
             $this->_errorMessage = "Error:" . $e->getMessage();
+            return false;
         }
     } 
     /**
@@ -453,7 +455,7 @@ class MySendMail {
     */
     protected function socket() {
         //创建socket资源
-        $this->_socket = socket_create(AF_INET, SOCK_STREAM, getprotobyname('tcp'));
+        $this->_socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
         if(!$this->_socket) {
             $this->_errorMessage = socket_strerror(socket_last_error());
             return false;
@@ -500,7 +502,7 @@ class MySendMail {
     */
     protected function close() {
         if(isset($this->_socket) && is_object($this->_socket)) {
-            $this->_socket->close();
+            socket_close($this->_socket);
             return true;
         }
         $this->_errorMessage = "No resource can to be close";
